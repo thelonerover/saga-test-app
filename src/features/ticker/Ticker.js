@@ -1,8 +1,17 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { getRandomArticle } from './tickerSlice';
 
-const Button = ({ value }) => {
+
+const Button = ({ subreddit }) => {
+    const dispatch = useDispatch();
+    
+    const handleClick = subreddit => () => {
+        dispatch(getRandomArticle(subreddit));
+    }
+
     return (
-        <button>{value}</button>
+        <button onClick={handleClick(subreddit.toLowerCase())}>{subreddit}</button>
     );
 }
 

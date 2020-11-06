@@ -6,10 +6,10 @@ function App() {
   return (
     <div className='App'>
       <ul className='tickers'>
-        <Ticker value={'frontend'} />
-        <Ticker value={'reactjs'} />
-        <Ticker value={'vuejs'} />
-        <Ticker value={'angular'} />
+        <Ticker subreddit={'frontend'} />
+        <Ticker subreddit={'reactjs'} />
+        <Ticker subreddit={'vuejs'} />
+        <Ticker subreddit={'angular'} />
       </ul>
     </div>
   );

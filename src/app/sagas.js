@@ -9,7 +9,5 @@ function* fetchRandomArticle(subreddit) {
 }
 
 export function* watchFetchRandomArticle() {
-    yield takeEvery('INCREMENT_ASYNC', fetchRandomArticle)
+    yield takeEvery('ADD_AN_ARTICLE_LINK', fetchRandomArticle)
   }
-
-export const rootSaga = {};
