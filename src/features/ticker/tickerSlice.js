@@ -6,8 +6,9 @@ export const tickerSlice = createSlice({
     name: 'ticker',
     initialState,
     reducers: {
-        getRandomArticle(state, action) {
-            state.articleLinks = [...state.articleLinks, action.payload]
+        getRandomArticle() {},
+        getRandomArticleSuccess(state, action) {
+            state.articleLinks = [...state.articleLinks, action.payload];
         }
     }
 });

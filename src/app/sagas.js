@@ -1,13 +1,19 @@
 import { put, takeEvery } from 'redux-saga/effects';
 
-function* fetchRandomArticle(subreddit) {
-    let response = yield fetch(`https://www.reddit.com/dev/api/r/${subreddit}/random`);
-    yield response = response.json();
-    console.log(response);
+const domain = 'https://www.reddit.com';
 
-    yield put({ type: "ADD_AN_ARTICLE_LINK", link: response.articles, });
+function* fetchRandomArticle(action) {
+  try {
+    let data = yield fetch(`${domain}/r/${action.payload}/random.json?query=javascript`);
+    data = yield data.json();
+    const url = data[0].data.children[0].data.permalink
+    console.log(domain + url);
+    yield put({ type: "ticker/getRandomArticleSuccess", payload: url });
+  } catch (error) {
+    yield put({ type: "ticker/getRandomArticleFailure", error });
+  }
 }
 
 export function* watchFetchRandomArticle() {
-    yield takeEvery('ADD_AN_ARTICLE_LINK', fetchRandomArticle)
-  }
+  yield takeEvery('ticker/getRandomArticle', fetchRandomArticle)
+}
