@@ -1,8 +1,11 @@
 import React from 'react';
-import './App.css';
+import { useSelector } from 'react-redux';
 import Ticker from './features/ticker/Ticker';
+import Link from './features/link/Link';
 
 function App() {
+  const posts = useSelector(state => state.ticker.posts);
+
   return (
     <div className='App'>
       <ul className='tickers'>
@@ -10,6 +13,9 @@ function App() {
         <Ticker subreddit={'reactjs'} />
         <Ticker subreddit={'vuejs'} />
         <Ticker subreddit={'angular'} />
+      </ul>
+      <ul className='links'>
+        { posts && posts.map(post => <Link url={post.url} key={post.id} postId={post.id} />) }
       </ul>
     </div>
   );
