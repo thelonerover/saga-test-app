@@ -6,9 +6,7 @@ import { getRandomPosts } from './tickerSlice';
 const Button = ({ subreddit }) => {
     const dispatch = useDispatch();
     
-    const handleClick = subreddit => () => {
-        dispatch(getRandomPosts(subreddit));
-    }
+    const handleClick = subreddit => () => dispatch(getRandomPosts(subreddit));
 
     return (
         <button onClick={handleClick(subreddit.toLowerCase())}>{subreddit}</button>
