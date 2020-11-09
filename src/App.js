@@ -15,7 +15,7 @@ function App() {
         <Ticker subreddit={'angular'} />
       </ul>
       <ul className='links'>
-        { posts && posts.map(post => <Link url={post.url} key={post.id} postId={post.id} />) }
+        { posts && posts.map(post => <Link key={post.id} {...post} />) }
       </ul>
     </div>
   );

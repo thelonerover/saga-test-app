@@ -2,17 +2,17 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePostItem } from '../ticker/tickerSlice';
 
-const Link = ({ postId, url }) => {
+const Link = ({ id, url, title }) => {
     const dispatch = useDispatch();
 
-    const handleDelete = (postId) => () => {
-        dispatch(deletePostItem(postId));
+    const handleDelete = (id) => () => {
+        dispatch(deletePostItem(id));
     }
 
     return (
         <li>
-            <button onClick={handleDelete(postId)}>🗑</button>
-            <a href={url} target='_blank'>{url}</a>
+            <button onClick={handleDelete(id)}>🗑</button>
+            <a href={url} target='_blank' rel='noreferrer'>{title}</a>
         </li>
     );
 }

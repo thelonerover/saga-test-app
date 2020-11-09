@@ -9,7 +9,7 @@ export const tickerSlice = createSlice({
     reducers: {
         getRandomPosts() {},
         getRandomPostsSuccess(state, action) {
-            state.posts = [...state.posts, { url: domain + action.payload.permalink, id: action.payload.id }];
+            state.posts = [...state.posts, { ...action.payload }];
         },
         deletePostItem(state, action) {
             state.posts = state.posts.filter(post => post.id !== action.payload);
