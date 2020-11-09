@@ -12,9 +12,9 @@ export const tickerSlice = createSlice({
         getRandomPosts() {},
         getRandomPostsSuccess(state, action) {
             if (state.posts.find(post => post.id === action.payload.id)) {
-                state.posts = [...state.posts, { ...action.payload, id: action.payload.id + idIndex++ }];
+                state.posts = [...state.posts, { ...action.payload, id: action.payload.id + idIndex++, like: false }];
             } else {
-                state.posts = [...state.posts, { ...action.payload }];
+                state.posts = [...state.posts, { ...action.payload, like: false }];
             }
         },
         deletePostItem(state, action) {
@@ -22,10 +22,11 @@ export const tickerSlice = createSlice({
         },
         likePost(state, action) {
             state.posts = state.posts.map(post => {
-                console.log(post);
-                // if (post.id === action.payload) {
-                //     post.id = !post.id
-                // }
+                if (post.id === action.payload) {
+                    post.like = !post.like;
+                }
+
+                return post;
             });
         }
     }
