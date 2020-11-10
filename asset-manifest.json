@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/saga-test-app/static/css/main.10b9027f.chunk.css",
+    "main.js": "/saga-test-app/static/js/main.c298df9a.chunk.js",
+    "main.js.map": "/saga-test-app/static/js/main.c298df9a.chunk.js.map",
+    "runtime-main.js": "/saga-test-app/static/js/runtime-main.51af55ff.js",
+    "runtime-main.js.map": "/saga-test-app/static/js/runtime-main.51af55ff.js.map",
+    "static/js/2.498173f0.chunk.js": "/saga-test-app/static/js/2.498173f0.chunk.js",
+    "static/js/2.498173f0.chunk.js.map": "/saga-test-app/static/js/2.498173f0.chunk.js.map",
+    "index.html": "/saga-test-app/index.html",
+    "static/css/main.10b9027f.chunk.css.map": "/saga-test-app/static/css/main.10b9027f.chunk.css.map",
+    "static/js/2.498173f0.chunk.js.LICENSE.txt": "/saga-test-app/static/js/2.498173f0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.51af55ff.js",
+    "static/js/2.498173f0.chunk.js",
+    "static/css/main.10b9027f.chunk.css",
+    "static/js/main.c298df9a.chunk.js"
+  ]
+}
