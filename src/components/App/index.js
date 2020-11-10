@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <Tickers />
-      <Links />
+        <Links />
       <Loader />
     </div>
   );
