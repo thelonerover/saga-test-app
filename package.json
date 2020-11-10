@@ -1,6 +1,5 @@
 {
   "name": "saga-test-app",
-  "homepage": "https://thelonerover.github.io/saga-test-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
