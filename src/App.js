@@ -1,19 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Ticker from './features/ticker/Ticker';
-import Link from './features/link/Link';
+import Link from './components/Link';
+import Tickers from './components/Tickers';
 
 function App() {
   const posts = useSelector(state => state.ticker.posts);
+  const loading = useSelector(state => state.ticker.loading);
 
   return (
-    <div className='App'>
-      <ul className='tickers'>
-        <Ticker subreddit={'frontend'} />
-        <Ticker subreddit={'reactjs'} />
-        <Ticker subreddit={'vuejs'} />
-        <Ticker subreddit={'angular'} />
-      </ul>
+    <div>
+      <Tickers />
+      {loading && <span>Loading</span>}
       <ul className='links'>
         { posts && posts.map(post => <Link key={post.id} {...post} />) }
       </ul>

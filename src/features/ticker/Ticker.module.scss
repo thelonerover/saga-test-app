@@ -1,0 +1,16 @@
+.ticker {
+    position: relative;
+    border: none;
+    padding: 1.5rem 2rem;
+    animation: ticker 4s ease-in-out infinite alternate;
+
+    &:hover {
+        background-color: #f5f5f5;
+        animation-play-state: paused;
+    }
+
+    @keyframes ticker {
+        from { left: 0%; }
+        to { left: 50%; }
+    }
+}
