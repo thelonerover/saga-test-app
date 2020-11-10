@@ -1,16 +1,37 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import counterReducer from '../features/counter/counterSlice';
-import tickerReducer from '../features/ticker/tickerSlice';
+import rootReducer from '../app/rootReducer';
 import createSagaMiddleware from 'redux-saga';
 import { watchfetchRandomPost } from './sagas';
+import {
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage
+}
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const sagaMiddleware = createSagaMiddleware();
 
-export default configureStore({
-  reducer: {
-    ticker: tickerReducer,
-  },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+    }
+  }).concat(sagaMiddleware),
 });
 
 sagaMiddleware.run(watchfetchRandomPost);
+
+export default store;

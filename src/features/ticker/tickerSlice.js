@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { domain } from '../../constants';
 
 const initialState = { posts: [], loading: false };
 
