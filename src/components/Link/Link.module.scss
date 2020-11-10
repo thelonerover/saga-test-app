@@ -2,15 +2,41 @@
     display: flex;
     margin-bottom: 1rem;
     align-items: stretch;
+    color: #B7EEF1;
+
+    animation: appear .2s ease-out;
 }
 
 .link {
     margin-left: 1rem;
     align-self: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 2rem;
+    color: inherit;
+    cursor: pointer;
+    user-select: none;
+    transition: .2s ease-in;
+
+    &:hover {
+        color: #ffffff;
+        animation-play-state: paused;
+    }
 }
 
 .button {
     display: inline-block;
     padding: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
     border: none;
+
+    &:hover {
+        color: #ffffff;
+        animation-play-state: paused;
+    }
+}
+
+@keyframes appear {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

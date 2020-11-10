@@ -3,15 +3,16 @@ import { useDispatch } from 'react-redux';
 import { getRandomPosts } from './tickerSlice';
 import styles from './Ticker.module.scss';
 
-const Button = ({ subreddit }) => {
+const Button = ({ value, subreddit }) => {
     const dispatch = useDispatch();
+    const text = value.padStart(200, `${value}-`);
     
     const handleClick = subreddit => () => {
         dispatch(getRandomPosts(subreddit))
     };
 
     return (
-        <button className={styles.ticker} onClick={handleClick(subreddit.toLowerCase())}>{subreddit}</button>
+        <span className={styles.ticker} onClick={handleClick(subreddit.toLowerCase())}>{text}</span>
     );
 }
 

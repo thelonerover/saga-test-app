@@ -17,8 +17,8 @@ const Link = ({ id, url, title }) => {
 
     return (
         <li className={styles.listItem}>
-            <button className={styles.button} onClick={handleLike(id)}>{post.like ? '♥' : '♡'}</button>
-            <button className={styles.button} onClick={handleDelete(id)}>⨉</button>
+            <span className={styles.button} onClick={handleLike(id)}>{post.like ? '♥' : '♡'}</span>
+            <span className={styles.button} onClick={handleDelete(id)}>⨉</span>
             <a href={url} target='_blank' rel='noreferrer' className={styles.link}>{title}</a>
         </li>
     );

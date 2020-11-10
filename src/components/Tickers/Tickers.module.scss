@@ -1,6 +1,28 @@
 .list {
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 0 2rem 0;
     padding: 0;
     list-style: none;
-    margin-bottom: 2rem;
+}
+
+.listItem {
+    position: relative;
+    animation: ticker 20s ease-in-out infinite alternate;
+
+    &:nth-of-type(2n) {
+        animation: tickerReverse 20s ease-in-out infinite alternate;
+    }
+
+}
+
+@keyframes ticker {
+    from { left: 0; }
+    to { left: -100%; }
+}
+
+@keyframes tickerReverse {
+    from { left: -100%; }
+    to { left: 0; }
 }
